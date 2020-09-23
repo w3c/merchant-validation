@@ -20,7 +20,7 @@
         ],
         group: "payments",
         github: "w3c/merchant-validation",
-        testSuiteURI: "https://wpt.live/payment-request/",
+        testSuiteURI: "https://wpt.live/merchant-validation/",
         xref: "web-platform",
       };
     </script>
@@ -30,14 +30,27 @@
     <h1 id="title">
       The <code>MerchantValidationEvent</code> interface
     </h1>
-    <section id="abstract">
-      <p>
-        This is a Note.
-      </p>
-    </section>
+    <section id="abstract"></section>
     <section id="sotd">
       <p>
         This is a placeholder document.
+      </p>
+    </section>
+    <section>
+      <h2>
+        Merchant validation
+      </h2>
+      <p>
+        <dfn data-export="" data-lt="Validate the merchant">Merchant
+        validation</dfn> is the process by which a <a>payment handler</a>
+        validates the identity of a merchant against some |value| (usually some
+        cryptographic challenge response). Validated merchants are allowed to
+        interface with a <a>payment handler</a>. Details of how actual
+        validation is performed is outside the scope of this specification.
+      </p>
+      <p>
+        It is OPTIONAL for a <a>payment handler</a> to support <a>merchant
+        validation</a>.
       </p>
     </section>
     <section>
@@ -109,8 +122,7 @@
           "MerchantValidationEvent.MerchantValidationEvent()">`MerchantValidationEvent`
           constructor</dfn>
         </h3>
-        <p data-tests=
-        "MerchantValidationEvent/constructor.https.html, MerchantValidationEvent/constructor.http.html">
+        <p data-tests="constructor.https.html, constructor.http.html">
           The <a>event constructing steps</a>, which take a
           {{MerchantValidationEvent}} |event:MerchantValidationEvent|, are as
           follows:
@@ -174,7 +186,7 @@
         <h3>
           <dfn>complete()</dfn> method
         </h3>
-        <p data-tests="MerchantValidationEvent/complete-method.https.html">
+        <p data-tests="complete-method.https.html">
           The {{MerchantValidationEvent}}'s
           <code>complete(|merchantSessionPromise|)</code> method MUST act as
           follows:
@@ -238,20 +250,8 @@
     </section>
     <section>
       <h2>
-        Merchant validation
+        Request merchant validation algorithm
       </h2>
-      <p>
-        <dfn data-lt="Validate the merchant">Merchant validation</dfn> is the
-        process by which a <a>payment handler</a> validates the identity of a
-        merchant against some |value| (usually some cryptographic challenge
-        response). Validated merchants are allowed to interface with a
-        <a>payment handler</a>. Details of how actual validation is performed
-        is outside the scope of this specification.
-      </p>
-      <p>
-        It is OPTIONAL for a <a>payment handler</a> to support <a>merchant
-        validation</a>.
-      </p>
       <p>
         For <a>payment handlers</a> that support <a>merchant validation</a>,
         the user agent runs the <dfn>request merchant validation
