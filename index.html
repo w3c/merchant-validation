@@ -30,7 +30,20 @@
     <h1 id="title">
       The <code>MerchantValidationEvent</code> interface
     </h1>
-    <section id="abstract"></section>
+    <section id="abstract">
+      <p>
+        <dfn data-lt="Validate the merchant">Merchant validation</dfn> is the
+        process by which a <a>payment handler</a> validates the identity of a
+        merchant against some |value| (usually some cryptographic challenge
+        response). Validated merchants are allowed to interface with a
+        <a>payment handler</a>. Details of how actual validation is performed
+        is outside the scope of this specification.
+      </p>
+      <p>
+        This feature was removed from Payment Request API 1.0 due to lack of
+        interoperable support.
+      </p>
+    </section>
     <section id="sotd">
       <p>
         This is a placeholder document.
