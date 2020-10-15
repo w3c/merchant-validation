@@ -198,9 +198,8 @@
           </li>
           <li>Let |request:PaymentRequest| be |event|'s [=Event/target=].
           </li>
-          <li>If |request|.{{PaymentRequest/[[state]]}} is not
-          "[=state/interactive=]", then [=exception/throw=] an
-          {{"InvalidStateError"}} {{DOMException}}.
+          <li>If |request|.{{PaymentRequest/[[state]]}} is not `"interactive"`,
+          then [=exception/throw=] an {{"InvalidStateError"}} {{DOMException}}.
           </li>
           <li>If |request|.{{PaymentRequest/[[updating]]}} is true, then
           [=exception/throw=] an {{"InvalidStateError"}} {{DOMException}}.
