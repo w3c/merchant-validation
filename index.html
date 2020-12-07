@@ -24,20 +24,22 @@
         xref: "web-platform",
       };
     </script>
-    <title></title>
+    <title>
+      The MerchantValidationEvent interface
+    </title>
   </head>
-  <body data-cite="payment-request payment-method-id">
+  <body data-cite="payment-method-id payment-request">
     <h1 id="title">
       The <code>MerchantValidationEvent</code> interface
     </h1>
     <section id="abstract">
       <p>
         <dfn data-export="" data-lt="Validate the merchant">Merchant
-        validation</dfn> is the process by which a <a>payment handler</a>
-        validates the identity of a merchant against some |value| (usually some
+        validation</dfn> is the process by which a payment handler validates
+        the identity of a merchant against some |value| (usually some
         cryptographic challenge response). Validated merchants are allowed to
-        interface with a <a>payment handler</a>. Details of how actual
-        validation is performed is outside the scope of this specification.
+        interface with a payment handler. Details of how actual validation is
+        performed is outside the scope of this specification.
       </p>
     </section>
     <section id="sotd">
@@ -167,9 +169,9 @@
           <dfn>validationURL</dfn> attribute
         </h3>
         <p>
-          A <a>URL</a> from which a developer can fetch <a>payment
-          handler</a>-specific verification data. By then passing that data (or
-          a promise that resolves with that data) to
+          A <a>URL</a> from which a developer can fetch payment
+          handler-specific verification data. By then passing that data (or a
+          promise that resolves with that data) to
           {{PaymentResponse/complete()}}, the user agent can verify that the
           payment request is from an authorized merchant.
         </p>
@@ -229,15 +231,15 @@
             <dfn>methodName</dfn> member
           </dt>
           <dd>
-            A <a>payment method identifier</a> representing the <a>payment
-            handler</a> that is requiring <a>merchant validation</a>.
+            A <a>payment method identifier</a> representing the payment handler
+            that is requiring <a>merchant validation</a>.
           </dd>
           <dt>
             <dfn>validationURL</dfn> member
           </dt>
           <dd>
-            A URL from which a developer would fetch <a>payment
-            handler</a>-specific verification data.
+            A URL from which a developer would fetch payment handler-specific
+            verification data.
           </dd>
         </dl>
       </section>
@@ -247,22 +249,21 @@
         Request merchant validation algorithm
       </h2>
       <p>
-        For <a>payment handlers</a> that support <a>merchant validation</a>,
-        the user agent runs the <dfn>request merchant validation
-        algorithm</dfn>. The algorithm takes a {{USVString}}
-        |merchantSpecificURL|, provided by the <a>payment handler</a>:
+        For payment handlers that support <a>merchant validation</a>, the user
+        agent runs the <dfn>request merchant validation algorithm</dfn>. The
+        algorithm takes a {{USVString}} |merchantSpecificURL|, provided by the
+        payment handler:
       </p>
       <ol class="algorithm">
         <li>Let |request:PaymentRequest| be the {{PaymentRequest}} object that
         the user is interacting with.
         </li>
         <li>Let |validationURL:URL| be a <a>absolute-URL string</a> from which
-        a developer can fetch <a>payment handler</a>-specific verification
-        data.
+        a developer can fetch payment handler-specific verification data.
         </li>
         <li>Let |methodName:URL or String| be the <a>payment method
-        identifier</a> for the <a>payment handler</a> that is requiring
-        <a>merchant validation</a>.
+        identifier</a> for the payment handler that is requiring <a>merchant
+        validation</a>.
         </li>
         <li>
           <a>Queue a task</a> on the <a>user interaction task source</a> to run
@@ -337,8 +338,8 @@
               <a>Validate the merchant</a> using |opaqueData|.
             </li>
             <li>If |opaqueData| is invalid, as per the validation rules of the
-            <a>payment handler</a>, <a>abort the update</a> with |request| and
-            an appropriate <a>exception</a> and return.
+            payment handler, <a>abort the update</a> with |request| and an
+            appropriate <a>exception</a> and return.
             </li>
             <li>Otherwise, set |request|.`[[updating]]` to false.
             </li>
