@@ -7,8 +7,8 @@
     <script class="remove">
       // See: https://respec.org/docs/ for all configuration options
       var respecConfig = {
-        shortName: "my-note",
-        specStatus: "unofficial", // "WG-NOTE"
+        shortName: "merchant-validation",
+        specStatus: "unofficial", // "FPWD-NOTE"
         noRecTrack: true,
         editors: [
           {
@@ -39,14 +39,13 @@
         interface with a <a>payment handler</a>. Details of how actual
         validation is performed is outside the scope of this specification.
       </p>
-      <p>
-        This feature was removed from Payment Request API 1.0 due to lack of
-        interoperable support.
-      </p>
     </section>
     <section id="sotd">
       <p>
-        This is a placeholder document.
+        <strong>This feature was removed from [[[Payment-Request]]] due to lack
+        of interoperable support.</strong> However, as it is implemented by at
+        least one browser engine, the Working Group decided to publish this
+        document as a Working Group Note.
       </p>
     </section>
     <section>
@@ -198,11 +197,11 @@
           </li>
           <li>Let |request:PaymentRequest| be |event|'s [=Event/target=].
           </li>
-          <li>If |request|.{{PaymentRequest/[[state]]}} is not `"interactive"`,
-          then [=exception/throw=] an {{"InvalidStateError"}} {{DOMException}}.
-          </li>
-          <li>If |request|.{{PaymentRequest/[[updating]]}} is true, then
+          <li>If |request|.`[[state]` is not `"interactive"`, then
           [=exception/throw=] an {{"InvalidStateError"}} {{DOMException}}.
+          </li>
+          <li>If |request|.`[[updating]]` is true, then [=exception/throw=] an
+          {{"InvalidStateError"}} {{DOMException}}.
           </li>
           <li>Set |event|'s [=Event/stop propagation flag=] and [=Event/stop
           immediate propagation flag=].
@@ -269,10 +268,9 @@
           <a>Queue a task</a> on the <a>user interaction task source</a> to run
           the following steps:
           <ol>
-            <li>Assert: |request|.{{PaymentRequest/[[updating]]}} is false.
+            <li>Assert: |request|.`[[updating]]` is false.
             </li>
-            <li>Assert: |request|.{{PaymentRequest/[[state]]}} is
-            "[=state/interactive=]".
+            <li>Assert: |request|.`[[state]` is `"interactive"`.
             </li>
             <li>Let |eventInitDict:MerchantValidationEventInit| be an new
             {{MerchantValidationEventInit}} dictionary.
@@ -314,7 +312,7 @@
         timeout is a fatal error for the payment request.
       </p>
       <ol class="algorithm">
-        <li>Set |request|.{{PaymentRequest/[[updating]]}} to true.
+        <li>Set |request|.`[[updating]]` to true.
         </li>
         <li>
           <a>In parallel</a>, disable the user interface that allows the user
@@ -342,8 +340,7 @@
             <a>payment handler</a>, <a>abort the update</a> with |request| and
             an appropriate <a>exception</a> and return.
             </li>
-            <li>Otherwise, set |request|.{{PaymentRequest/[[updating]]}} to
-            false.
+            <li>Otherwise, set |request|.`[[updating]]` to false.
             </li>
             <li>Enable the user interface, allowing the request for payment to
             proceed.
